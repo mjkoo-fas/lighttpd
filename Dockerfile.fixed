@@ -11,9 +11,9 @@ WORKDIR /
 CMD ["/usr/local/sbin/lighttpd","-D", "-f","/usr/local/etc/lighttpd.conf"]
 EXPOSE 80
 
-#FROM debian:stable-slim
-#RUN apt-get update && apt-get install -y libc6-dbg
-#COPY --from=builder /usr/local /usr/local
-#RUN mkdir /www && echo "lighttpd 1.4.52 running!" > /www/index.html
-#CMD ["/usr/local/sbin/lighttpd","-D", "-f","/usr/local/etc/lighttpd.conf"]
-#EXPOSE 80
+FROM debian:stable-slim
+RUN apt-get update && apt-get install -y  --no-install-recommends libc6-dbg
+COPY --from=builder /usr/local /usr/local
+RUN mkdir /www && echo "lighttpd 1.4.52 running!" > /www/index.html
+CMD ["/usr/local/sbin/lighttpd","-D", "-f","/usr/local/etc/lighttpd.conf"]
+EXPOSE 80

@@ -18,7 +18,6 @@ dockerhub: build
 	done
 
 $(REGISTRIES): build
-	echo $@
 	for n in vulnerable fixed latest; do \
 		docker tag lighttpd:$$n $@:5000/$(ACCOUNT)/lighttpd:$$n; \
 		docker push $@:5000/$(ACCOUNT)/lighttpd:$$n; \
