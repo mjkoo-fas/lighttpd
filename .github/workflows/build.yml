@@ -1,14 +1,12 @@
 name: Build
-  #on: [workflow_dispatch, pull_request, push]
 on:
   workflow_dispatch:
-
   push:
-    branches: [ 'fixed', 'vulnerable' ]
+    branches: 
+      - '*'
   pull_request:
-  # branches: [ main ]
-  #pull_request:
-  #  branches: [ main ]
+    branches:
+      - '*'
 
 
 jobs:
