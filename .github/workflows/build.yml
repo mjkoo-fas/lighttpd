@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
   push:
-    branches: [ 'main' ]
+    branches: [ 'fixed', 'vulnerable' ]
   pull_request:
   # branches: [ main ]
   #pull_request:
