@@ -32,5 +32,8 @@ jobs:
         run: |
           curl -o mcode https://mayhem.forallsecure.com/cli/Linux/mayhem
           chmod 755 mcode
-          echo "mcode run --baseimage ${{ steps.branch-name }}"
+          cd mayhem
+          echo "mcode run --baseimage ${{ steps.branch-name.outputs.current_branch }}"
+          echo $(pwd)
+          mcode run --baseimage ${{ steps.branch-name.outputs.current_branch }}
 
