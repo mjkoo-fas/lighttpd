@@ -1,7 +1,11 @@
 name: Build
-on: [workflow_dispatch, pull_request, push]
-  #workflow:
-  #ipush:
+  #on: [workflow_dispatch, pull_request, push]
+on:
+  workflow_dispatch:
+
+  push:
+    branches: [main]
+  pull_request:
   # branches: [ main ]
   #pull_request:
   #  branches: [ main ]
