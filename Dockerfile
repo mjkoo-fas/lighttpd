@@ -8,7 +8,7 @@ RUN wget https://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.15.t
    && mkdir /www && echo "lighttpd 1.4.15 running!" > /www/index.html
 COPY lighttpd.conf /usr/local/etc
 WORKDIR /
-COPY vulnerable/corpus /corpus
+COPY mayhem/corpus /corpus
 CMD ["/usr/local/sbin/lighttpd","-D", "-f","/usr/local/etc/lighttpd.conf"]
 EXPOSE 80
 
