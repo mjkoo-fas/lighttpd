@@ -1,0 +1,36 @@
+name: Mayhem
+on:
+  workflow_dispatch:
+  push:
+    branches: 
+      - '*'
+  pull_request:
+    branches:
+      - '*'
+
+
+jobs:
+  build:
+    name: '${{ matrix.os }} shared=${{ matrix.shared }} ${{ matrix.build_type }}'
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        shared: [false]
+        build_type: [Release]
+        include:
+          - os: ubuntu-latest
+            triplet: x64-linux
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Get branch name
+        id: branch-name
+        uses: tj-actions/branch-names@v5.1
+
+      - name: Run mayhem 
+        run: |
+          curl -o mayhem https://mayhem.forallsecure.com/cli/Linux/mayhem
+          chmod 755 mayhem
+          echo "mayhem run --baseimage ${{ steps.branch-name }}"
+
