@@ -1,7 +1,7 @@
-version: '1.15'
-baseimage: beta.forallsecure.com:5000/forallsecure/lighttpd:vulnerable
-duration: 30
-project: forallsecure/lighttpd-demo
+version: '1.16'
+baseimage: forallsecure/lighttpd:vulnerable
+duration: 45
+project: forallsecure/lighttpd-github-demo
 target: lighttpd
 advanced_triage: true
 tasks:
