@@ -15,7 +15,7 @@ EXPOSE 80
 FROM debian:10-slim
 RUN apt-get update && apt-get install -y  --no-install-recommends libc6-dbg
 # Don't set workdir! corpus is relative to /
-COPY vulnerable/corpus /corpus
+COPY mayhem/corpus /corpus
 COPY --from=builder /usr/local /usr/local
 RUN mkdir /www && echo "lighttpd 1.4.15 running!" > /www/index.html
 CMD ["/usr/local/sbin/lighttpd","-D", "-f","/usr/local/etc/lighttpd.conf"]
