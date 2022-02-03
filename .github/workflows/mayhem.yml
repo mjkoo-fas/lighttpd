@@ -30,7 +30,7 @@ jobs:
 
       - name: Run mayhem 
         run: |
-          curl -o mayhem https://mayhem.forallsecure.com/cli/Linux/mayhem
-          chmod 755 mayhem
-          echo "mayhem run --baseimage ${{ steps.branch-name }}"
+          curl -o mcode https://mayhem.forallsecure.com/cli/Linux/mayhem
+          chmod 755 mcode
+          echo "mcode run --baseimage ${{ steps.branch-name }}"
 
