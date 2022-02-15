@@ -1,8 +1,8 @@
-version: '1.16'
-baseimage: forallsecure/lighttpd:vulnerable
-duration: 45
-project: forallsecure/lighttpd-github-demo
-target: lighttpd
+version: '1.16'                                # all these fields
+baseimage: forallsecure/lighttpd:vulnerable    # are unnecessary
+duration: 45                                   # since they will
+project: forallsecure/lighttpd-github-demo     # be filled at
+target: lighttpd                               # run creation time
 advanced_triage: true
 tasks:
   - name: exploitability_factors
