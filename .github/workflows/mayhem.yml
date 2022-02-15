@@ -21,7 +21,7 @@ jobs:
         id: branch-name
         uses: tj-actions/branch-names@v5.1
 
-      - uses: ethan42/mcode-action@fc29e61f736d67551cc8f39246efd26c14ff0839
+      - uses: ethan42/mcode-action@d2f2c087c9ab142c1a85d89e2a9a25f2845e43ee
         with:
           mayhem-token: ${{ secrets.MAYHEM_TOKEN }}
           mayhem-url: ${{ secrets.MAYHEM_URL }}
