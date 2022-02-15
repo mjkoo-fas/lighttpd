@@ -46,7 +46,7 @@ jobs:
         with:
           mayhem-token: ${{ secrets.MAYHEM_TOKEN }}
           mayhem-url: ${{ secrets.MAYHEM_URL }}
-          args: --image ${{ github.repository }}:${{ steps.meta.outputs.tags[0] }} --corpus file://mayhem/corpus
+          args: --image ${{ github.repository }}:${{ steps.meta.outputs.tags }} --corpus file://mayhem/corpus
 
       - name: Upload SARIF file(s)
         uses: github/codeql-action/upload-sarif@v1
