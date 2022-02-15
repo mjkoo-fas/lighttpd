@@ -1,5 +1,7 @@
 name: Mayhem
 on:
+  pull_request:
+    branches: [master]
   workflow_dispatch:
 
 jobs:
@@ -21,8 +23,14 @@ jobs:
         id: branch-name
         uses: tj-actions/branch-names@v5.1
 
-      - uses: ethan42/mcode-action@81ed479fb95c250af4f9ff9cec5c50e310fd46d1
+      - name: Mayhem for Code
+        uses: ethan42/mcode-action@81ed479fb95c250af4f9ff9cec5c50e310fd46d1
         with:
           mayhem-token: ${{ secrets.MAYHEM_TOKEN }}
           mayhem-url: ${{ secrets.MAYHEM_URL }}
           args: --image ${{ github.repository }}:${{ steps.branch-name.outputs.current_branch }} --corpus file://mayhem/corpus
+
+      - name: Upload SARIF file(s)
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          sarif_file: mayhem-out/sarif
