@@ -25,4 +25,4 @@ jobs:
         with:
           mayhem-token: ${{ secrets.MAYHEM_TOKEN }}
           mayhem-url: ${{ secrets.MAYHEM_URL }}
-          args: --image ${{ github.repository }}:${{ steps.branch-name.outputs.current_branch }}
+          args: --image ${{ github.repository }}:${{ steps.branch-name.outputs.current_branch }} --corpus file://mayhem/corpus
