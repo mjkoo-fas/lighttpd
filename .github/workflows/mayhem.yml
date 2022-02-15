@@ -1,13 +1,6 @@
 name: Mayhem
 on:
   workflow_dispatch:
-  push:
-    branches: 
-      - '*'
-  pull_request:
-    branches:
-      - '*'
-
 
 jobs:
   build:
@@ -28,12 +21,8 @@ jobs:
         id: branch-name
         uses: tj-actions/branch-names@v5.1
 
-      - name: Run mayhem 
-        run: |
-          curl -o mcode https://mayhem.forallsecure.com/cli/Linux/mayhem
-          chmod 755 mcode
-          cd mayhem
-          echo "mcode run --baseimage ${{ steps.branch-name.outputs.current_branch }}"
-          echo $(pwd)
-          mcode run --baseimage ${{ steps.branch-name.outputs.current_branch }}
-
+      - uses: ethan42/mcode-action@fc29e61f736d67551cc8f39246efd26c14ff0839
+        with:
+          mayhem-token: ${{ secrets.MAYHEM_TOKEN }}
+          mayhem-url: ${{ secrets.MAYHEM_URL }}
+          args: --image ${{ steps.branch-name.outputs.current_branch }}
