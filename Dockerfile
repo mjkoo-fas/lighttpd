@@ -4,7 +4,7 @@ WORKDIR /build
 RUN wget https://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.52.tar.gz \
    && tar xf lighttpd-1.4.52.tar.gz \
    && cd /build/lighttpd-1.4.52 \
-   && CFLAGS=-g ./configure --without-bzip2 --without-pcre && CFLAGS=-g make && make install \
+   && CFLAGS=-g ./configure --without-bzip2 --without-pcre --without-zlib && CFLAGS=-g make && make install \
    && mkdir /www && echo "lighttpd 1.4.52 running!" > /www/index.html
 COPY lighttpd.conf /usr/local/etc
 WORKDIR /
