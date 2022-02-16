@@ -1,4 +1,4 @@
-# Lighttpd demo
+# Lighttpd
 Demonstration of Mayhem on the [lighttpd](https://www.lighttpd.net/)
 web server.
 
