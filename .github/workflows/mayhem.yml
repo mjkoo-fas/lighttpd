@@ -42,7 +42,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
 
       - name: Mayhem for Code
-        uses: ethan42/mcode-action@81ed479fb95c250af4f9ff9cec5c50e310fd46d1
+        uses: ethan42/mcode-action@e7de62215a9a6e4182ad8cfc2af2619e1e6cb7f4
         with:
           mayhem-token: ${{ secrets.MAYHEM_TOKEN }}
           mayhem-url: ${{ secrets.MAYHEM_URL }}
